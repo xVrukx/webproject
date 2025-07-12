@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About Me - Vruk</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      overflow-y: scroll;
+      background: #000000; /* 🔥 black bg for outside */
+      position: relative;
+    }
+
+    .stars {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(white, transparent);
+      opacity: 0.6;
+      animation: shoot 3s linear infinite;
+    }
+
+    @keyframes shoot {
+      0% {
+        transform: translateX(0) translateY(0) rotate(45deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-1000px) translateY(1000px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      background-color: rgb(255, 255, 255);
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      padding: 30px 40px;
+      color: #222;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #2c3e50;
+      border-left: 4px solid #3498db;
+      padding-left: 10px;
+      margin-top: 30px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      line-height: 1.8;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Stars -->
+  <div class="stars" id="stars"></div>
+
+  <!-- Main Content -->
+  <div class="wrapper">
+    <div class="container">
+      <h1>About Me - Yuvraj D. Sirganor (a.k.a. Vruk) </h1>
+
+      <h2>👨‍💻 Programming Languages & Frameworks</h2>
+      <ul>
+        <li>Python (core language)</li>
+        <li>Django + Django REST Framework (DRF)</li>
+        <li>MySQL & SQLAlchemy</li>
+        <li>HTML, CSS (Frontend basics)</li>
+        <li>OpenCV (Image I/O & display)</li>
+        <li>Tkinter (GUI development)</li>
+        <li>Celery + Redis (Async jobs)</li>
+      </ul>
+
+      <h2>🧠 Tools & Technologies</h2>
+      <ul>
+        <li>Git & GitHub</li>
+        <li>Pytest (testing)</li>
+        <li>BeautifulSoup, Requests (Web scraping)</li>
+        <li>Docker (project-based understanding)</li>
+        <li>Telegram Bot API Integration (Django)</li>
+      </ul>
+
+      <h2>🛠 Projects & Interests</h2>
+      <ul>
+        <li>Custom Python Terminal (autocomplete, colorama, command history)</li>
+        <li>Library Management System (Tkinter + MySQL)</li>
+        <li>5V 3A Boost Converter (from salvaged parts)</li>
+        <li>Cyberdeck Setup (Raspberry Pi 4B + OLED + custom UI)</li>
+        <li>GUI-Based Price Scraper (Amazon, Flipkart, Shopsy)</li>
+      </ul>
+
+      <h2>🌐 Platforms & Freelancing</h2>
+      <ul>
+        <li>Fiverr (freelancing experience)</li>
+        <li>PayPal Integration</li>
+        <li>Canva & UI/UX understanding</li>
+      </ul>
+
+      <h2>🔭 Future Focus</h2>
+      <ul>
+        <li>Deepening backend development expertise</li>
+        <li>Expanding GUI into web apps</li>
+        <li>Freelancing growth: writing, promotion, dev work</li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Stars generator
+    function createStar() {
+      const star = document.createElement("div");
+      star.classList.add("shooting-star");
+      star.style.top = Math.random() * window.innerHeight + "px";
+      star.style.left = Math.random() * window.innerWidth + "px";
+      star.style.animationDuration = (2 + Math.random() * 2) + "s";
+      document.getElementById("stars").appendChild(star);
+
+      setTimeout(() => {
+        star.remove();
+      }, 3000);
+    }
+
+    setInterval(createStar, 700);
+  </script>
+
+</body>
+</html>

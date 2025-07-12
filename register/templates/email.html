@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Submission Details</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; color: #333;">
+    <div style="max-width: 600px; margin: auto; background-color: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); overflow: hidden;">
+        <div style="background-color: #2c3e50; padding: 20px; color: white;">
+            <h2 style="margin: 0;">Hello {{ name }} 👋</h2>
+        </div>
+        <div style="padding: 20px;">
+            <p>Thank you for submitting your details! Here's what we got:</p>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                    <td style="padding: 8px; font-weight: bold;">First Name:</td>
+                    <td style="padding: 8px;">{{ name }}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; font-weight: bold;">email:</td>
+                    <td style="padding: 8px;">{{ email }}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; font-weight: bold;">Phone number:</td>
+                    <td style="padding: 8px;">{{ phone }}</td>
+                </tr>
+            </table>
+            <p style="margin-top: 20px;">We'll reach out soon if needed. Until then, stay awesome 🚀</p>
+        </div>
+        <div style="background-color: #ecf0f1; padding: 10px; text-align: center; font-size: 12px; color: #555;">
+            &copy; {{ year }} Django App | All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

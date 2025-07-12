@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home - Vruk</title>
+
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #e9f1f7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 80px;
+            padding-bottom: 60px;
+            position: relative;
+        }
+
+        /* 3D Menu Icon */
+        .menu-icon {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            width: 40px;
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-icon div {
+            background-color: #333;
+            height: 4px;
+            border-radius: 2px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .menu-icon.clicked div:nth-child(1) {
+            transform: translateX(10px);
+        }
+
+        .menu-icon.clicked div:nth-child(2) {
+            transform: translateX(-10px);
+        }
+
+        .menu-icon.clicked div:nth-child(3) {
+            transform: translateX(10px);
+        }
+
+        /* Sliding Menu */
+        .side-menu {
+            position: absolute;
+            top: 60px;
+            right: 30px;
+            width: 180px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            padding: 15px;
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .side-menu.show {
+            display: flex;
+        }
+
+        .menu-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .menu-item:hover {
+            background: #f0f0f0;
+        }
+
+        .menu-item i {
+            font-size: 18px;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            width: 60%;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+.home-box-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1000px;
+    margin-top: 30px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Resize left and right boxes to fit nicely */
+.home-Left  {
+    flex: 1;
+    min-width: 250px;
+    height: 50vh;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-Right  {
+    flex: 1;
+    min-width: 250px;
+    height: 50vh;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Shared box styling */
+.home-box {
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: 180px;
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Make center box slightly higher */
+.home-center {
+    transform: translateY(-25px);
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: 180px;
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Bottom single box */
+.home-bottom {
+    margin-top: 40px;
+    width: 60%;
+    max-width: 500px;
+    height: 120px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .home-box-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .home-box, .home-bottom {
+        width: 90%;
+        margin-bottom: 20px;
+    }
+
+    .home-center {
+        transform: none;
+    }
+            .search-bar, .home-box {
+                width: 80%;
+            }
+}
+
+        .home-box h1 {
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu Icon -->
+    <div class="menu-icon" onclick="toggleMenu(this)">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Side Menu -->
+    <div class="side-menu" id="menu">
+        <a href="https://github.com/xVrukx" class="menu-item" target="_blank">
+            <i class="fab fa-github"></i> GitHub
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=developeryuvrajsirganor@gmail.com" class="menu-item" target="_blank">
+            <i class="fas fa-envelope"></i> Write a mail
+        </a>
+        <a href="/aboutus" class="menu-item">
+            <i class="fas fa-user"></i> About Me
+        </a>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <input type="text" placeholder="Search...">
+    </div>
+
+<!-- Wrapper for 3 top boxes -->
+<div class="home-box-wrapper">
+    <div class="home-box home-left">
+        <h1><b>Logo Designing</b></h1>
+    </div>
+
+    <div class="home-box home-center">
+        <h1><b>Welcome to Home Page<br>{{user}}</b></h1>
+    </div>
+
+    <div class="home-box home-right">
+        <h1><b>Web &<br>Application Development</b></h1>
+    </div>
+</div>
+
+<!-- New box below center -->
+<div class="home-box home-bottom">
+    <h1><b>Web & App testing</b></h1>
+</div>
+
+    <script>
+        function toggleMenu(el) {
+            el.classList.toggle('clicked');
+            document.getElementById('menu').classList.toggle('show');
+        }
+    </script>
+
+</body>
+</html>
