@@ -123,5 +123,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 # Use environment variables in production!
-EMAIL_HOST_USER = 'developeryuvrajsirganor@gmail.com'
-EMAIL_HOST_PASSWORD = 'rwdbiuokiwdzaepa'
+EMAIL_HOST_USER = 
+EMAIL_HOST_PASSWORD = 
